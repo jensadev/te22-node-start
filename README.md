@@ -126,5 +126,69 @@ package.json filen kommer att se ut ungefär så här:
 }
 ```
 
+## Git och GitHub
+
+Byt till source control i VS Code och initiera ett nytt git-repo. Lägg till alla filer och gör en commit. Skapa ett nytt repo på GitHub och pusha upp ditt projekt.
+
+För att undvika att ladda upp filer kopplade till node så kan du skapa en `.gitignore` fil i din projektmapp och lägga till `node_modules` i filen.
+
+```bash
+echo "node_modules" > .gitignore
+```
+
+## Installera Express
+
+Express är ett webbramverk för Node.js. Vi kommer att använda Express för att skapa en enkel webbserver.
+
+Installera Express genom att köra:
+
+```bash
+npm install express
+```
+
+Vi kommer att skapa din server i en fil som heter `server.js`. Skapa filen genom att köra:
+
+```bash
+touch server.js
+```
+
+Öppna mappen i VS Code genom att köra:
+
+```bash
+code .
+```
+
+I server filen så kommer vi att använda oss av ESM (ECMAScript Modules) för att kunna använda modern JavaScript-syntax. 
+ESM är en standard för att importera och exportera moduler i JavaScript.
+
+För att det ska fungera behöver vi redigera `package.json` så att node vet om att vi använder oss av ESM.
+
+Lägg till `"type": "module"` i `package.json` filen så att den ser ut så här:
+
+```json
+{
+  "type": "module",
+  "main": "server.js",
+}
+```
+
+## Testa att det fungerar
+
+Vi kan nu bara testa att köra igång servern. I `server.js` skriv följande kod:
+
+```javascript
+console.log('Hello World');
+```
+
+Kör servern genom att köra:
+
+```bash
+node server.js
+```
+
+Om du ser `Hello World` i terminalen så fungerar allt som det ska.
+
+
+
 
 
