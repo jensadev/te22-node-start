@@ -188,7 +188,52 @@ node server.js
 
 Om du ser `Hello World` i terminalen så fungerar allt som det ska.
 
+## Skapa en enkel webbserver
 
+Nu ska vi skapa en enkel webbserver med Express. I `server.js` skriv följande kod:
 
+```js
+import express from 'express'
+
+const app = express()
+
+const PORT = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`)
+})
+```
+
+Kör servern genom att köra:
+
+```bash
+node server.js
+```
+
+Öppna en webbläsare och gå till [http://localhost:3000](http://localhost:3000). Du borde se texten `Hello World!`.
+
+## Installera Nodemon
+
+Nodemon är ett verktyg som används för att övervaka förändringar i din källkod och automatiskt starta om servern när du sparar en fil.
+
+Installera Nodemon genom att köra:
+
+```bash
+npm install nodemon --save-dev
+```
+
+Lägg till ett script i `package.json` för att starta servern med Nodemon. Lägg till `"start": "nodemon server.js"` i `scripts` i `package.json` så att det ser ut så här:
+
+```json
+{
+  "scripts": {
+    "dev": "nodemon server.js"
+  }
+}
+```
 
 
